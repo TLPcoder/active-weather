@@ -1,0 +1,61 @@
+.App {
+    text-align: center;
+}
+
+.App-logo {
+    animation: App-logo-spin infinite 20s linear;
+    height: 80px;
+}
+
+.App-header {
+    background-color: #222;
+    height: 150px;
+    padding: 20px;
+    color: white;
+}
+
+.App-intro {
+    font-size: large;
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#map {
+    width: 500px;
+    height: 500px;
+    margin: auto;
+}
+
+.marker {
+    color: black;
+    background-image: url('https://cdn3.iconfinder.com/data/icons/map-markers-2/512/marker_2-256.png');
+    z-index: 10;
+    background-size: 25px 25px;
+    background-repeat: no-repeat;
+    padding: 15px
+}
+
+.marker p{
+    display: none;
+}
+
+.marker:hover p{
+    position: relative;
+    bottom:40px;
+    left:15px;
+    font-size: 15px;
+    display: block;
+    background-color: #F0F0F0;
+    min-width:110px;
+    z-index: 14;
+    border:1px solid #94989D;
+    border-radius: 5px;
+    font-family: sans-serif;
+}
