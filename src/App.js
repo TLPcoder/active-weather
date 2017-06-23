@@ -6,26 +6,36 @@ import {connect} from 'react-redux';
 import axios from 'axios';
 import Search from './components/search';
 import PlaceMap from './components/map';
+import Weather from './components/weather';
 
 class App extends Component {
     constructor(props) {
         super(props);
     }
     render() {
-        if(this.props.map.loadMap && this.props.map.markers.length > 0){
+        if (this.props.weather.showWeather) {
+            return (
+                <div className="App">
+                    <Search/>
+                    <PlaceMap/>
+                    <Weather/>
+                </div>
+            )
+        } else if (this.props.map.loadMap && this.props.map.markers.length > 0) {
             return (
                 <div className="App">
                     <Search/>
                     <PlaceMap/>
                 </div>
             )
+        } else {
+            return (
+                <div className="App">
+                    <Search/>
+                </div>
+            );
         }
-        return (
-            <div className="App">
-                <Search/>
-            </div>
-        );
     }
 }
 
-export default connect(({hiking,map}) => ({hiking,map}))(App);
+export default connect(({hiking, map, weather}) => ({hiking, map, weather}))(App);
