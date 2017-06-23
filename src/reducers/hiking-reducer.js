@@ -6,12 +6,13 @@ var initialState = {
 };
 
 export default (state = initialState, action)=>{
-    console.log('actions', action);
     switch(action.type){
         case types.GET_HIKING_TRAILS_SUCCESS:
             return {...state, places:action.payload};
         case types.GET_HIKING_TRAILS_FAIL:
             return {...state};
+        case types.SET_CURRENT_PLACE:
+            return {...state, current:action.payload};
         default:
             return state;
     }

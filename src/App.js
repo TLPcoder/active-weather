@@ -7,6 +7,7 @@ import axios from 'axios';
 import Search from './components/search';
 import PlaceMap from './components/map';
 import Weather from './components/weather';
+import PlaceInfo from './components/place-info';
 
 class App extends Component {
     constructor(props) {
@@ -18,6 +19,7 @@ class App extends Component {
                 <div className="App">
                     <Search/>
                     <PlaceMap/>
+                    <PlaceInfo/>
                     <Weather/>
                 </div>
             )
