@@ -6,7 +6,6 @@ import * as hikingTrails from '../actions/hiking-actions';
 const Search = props => {
     var location;
     function getPlaces() {
-        console.log(props);
         props.getHikingTrails(`https://trailapi-trailapi.p.mashape.com/?q[city_cont]=${location.value.split(' ').join('+')}`);
     }
     return (

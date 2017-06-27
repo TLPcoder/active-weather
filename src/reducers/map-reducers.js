@@ -7,7 +7,6 @@ var initialState = {
 };
 
 export default (state=initialState, action)=>{
-    console.log('actions',action);
     switch(action.type){
         case types.LOAD_MAP:
             return {...state, loadMap:action.payload}

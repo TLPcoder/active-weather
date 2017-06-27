@@ -14,9 +14,8 @@ export function * getHikingTrails({payload}) {
     try {
         const data = yield call(axios, config);
 
-        yield console.log('data', data);
-
         yield put({type: types.LOAD_MAP, payload: false});
+        yield put({type:types.SHOW_WEATHER, payload:false});
         yield put({type: types.GET_HIKING_TRAILS_SUCCESS, payload: data.data.places});
 
         yield put({type: types.MARKERS, payload: data.data.places});

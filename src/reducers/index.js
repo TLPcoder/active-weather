@@ -5,7 +5,7 @@ import map from './map-reducers';
 import weather from './weather-reducer';
 
 const rootReducer = combineReducers({
-  hiking, map, weather 
+  hiking, map, weather
 });
 
 export default rootReducer;
