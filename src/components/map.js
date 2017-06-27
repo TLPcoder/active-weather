@@ -2,7 +2,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import GoogleMapReact from 'google-map-react';
-import Markers from './markers';
 import {setCurrentPlace} from '../actions/hiking-actions';
 import * as weatherActions from '../actions/weather-actions';
 
@@ -24,7 +23,7 @@ const PlaceMap = props => {
     });
     return (
         <div id='map'>
-            <GoogleMapReact defaultCenter={center} defaultZoom={14}>
+            <GoogleMapReact defaultCenter={center} defaultZoom={12}>
                 {mapMarkers}
             </GoogleMapReact>
         </div>
