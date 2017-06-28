@@ -16,24 +16,26 @@ class App extends Component {
     render() {
         if (this.props.weather.showWeather) {
             return (
-                <div className="App">
-                    <Search/>
-                    <PlaceMap/>
-                    <PlaceInfo/>
+                <div>
+                    <Search className='searchBar'/>
+                    <div className='map-and-Info'>
+                        <PlaceInfo/>
+                        <PlaceMap/>
+                    </div>
                     <Weather/>
                 </div>
             )
         } else if (this.props.map.loadMap && this.props.map.markers.length > 0) {
             return (
                 <div className="App">
-                    <Search/>
-                    <PlaceMap/>
+                    <Search className='searchBar'/>
+                    <PlaceMap id='map'/>
                 </div>
             )
         } else {
             return (
-                <div className="App">
-                    <Search/>
+                <div className="App columns">
+                    <Search className='searchBar'/>
                 </div>
             );
         }

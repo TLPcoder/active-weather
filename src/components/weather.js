@@ -30,7 +30,11 @@ const Weather = props => {
         ]
     };
 
-    return (<Line data={weatherData} width="600" height="250"/>)
+    return (
+        <div id='graph'>
+            <Line data={weatherData} width="600" height='250'/>
+        </div>
+    )
 
 }
 

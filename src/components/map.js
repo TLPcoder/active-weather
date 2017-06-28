@@ -13,6 +13,7 @@ const PlaceMap = props => {
 
     function getWeather(lat,lng,event, data){
         props.getWeather(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/9d3eec30cd08de88ceeb2634447793b6/${lat},${lng}`);
+        console.log(data);
         props.setCurrentPlace(data);
     }
 
