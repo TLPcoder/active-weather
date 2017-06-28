@@ -1,6 +1,22 @@
 .App {
     text-align: center;
 }
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+#background{
+    background-color: #252830;
+    width: 100%;
+    z-index: -5;
+    height: 100vh;
+    position: fixed;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
 
 .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -27,11 +43,24 @@
     }
 }
 
-#map {
+.map {
+    -webkit-animation: fadein 1s;
+    width: 350px;
+    height: 350px;
+    position: relative;
+    left: 430px;
+    top: 12px;
+    z-index: 1;
+}
+
+.center-map {
     -webkit-animation: fadein 1s;
     width: 400px;
     height: 400px;
+    position: relative;
     margin: auto;
+    top: 70px;
+    z-index: 1;
 }
 
 .marker {
@@ -64,50 +93,115 @@
     border-radius: 2px;
     font-family: sans-serif;
 }
-@-webkit-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
+
 #linechart {
     width: 500px;
     margin: auto;
 }
 
-table{
-    width: 300px;
-    margin:auto;
+.temp {
+    background-color: #1A1C22;
+    width: 350px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 30px;
+    color: white;
+    position: relative;
+    left: 40px;
+}
+
+table {
+    background-color: #222222 !important;
+    padding: 10px !important;
+    color: white !important;
+    width: 350px !important;
+    height: 295px !important;
+    font-size: 20px;
+    z-index: 1;
+    margin-right: 90px;
+    position: relative;
+    left: 40px;
+}
+
+table tr:hover {
+    background-color: #222222 !important;
+}
+
+table td button {
+    position: relative;
+    width: 180px !important;
+}
+
+table td, th {
+    position: relative;
+    top: 20px;
+}
+
+table th {
+    color: white !important;
+    margin-right: 20px !important;
 }
 
 #search {
-    width: 100%;
-    margin-top: 50px;
+    width: 400px;
+    margin: auto;
+    position: relative;
+    top: 30px;
 }
-#search input[type=text]{
-    height:35px;
+
+#search input[type=text] {
+    height: 35px;
     font-size: 20px;
     margin-right: 20px;
 }
 
-#graph{
-    width:600px;
-    margin:auto;
+#graph {
+    width: 600px;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom:100px;
+
 }
 
-.map-and-Info{
-    width:900px;
+.map-and-Info {
+    width: 800px;
     margin: auto;
     position: relative;
-    left:120px;
+    top: 70px;
 }
 
-.floatLeft{
-    float:left;
+.floatLeft {
+    float: left;
 }
 
-.description-popup{
+.description-popup {
     /*width:600px;*/
-    background-color: black;
-    color:white;
+    -webkit-animation: fadein 1s;
+    box-shadow: 10px 10px 5px grey;
+    max-width: 600px;
+    padding: 10px;
+    border-radius: 3px;
+    background-color: #2bb0d1;
+    color: white;
     z-index: 15;
     position: absolute;
+    left: 110px;
+    top: 150px;
+}
+
+@-webkit-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#hr{
+    width:730px;
+    margin:auto;
+    position: relative;
+    left:17px;
+    margin-top: 100px;
 }

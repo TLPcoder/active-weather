@@ -14,17 +14,14 @@ class PlaceInfo extends Component {
             show: false
         };
     }
-    shouldComponentUpdate(nextProps, nextState){
-        if(nextProps.hiking.current.name !== this.place.name){
+    shouldComponentUpdate(nextProps, nextState) {
+        if (nextProps.hiking.current.name !== this.place.name) {
             this.place = nextProps.hiking.current;
-            this.setState({
-                description: '...',
-                show: false
-            });
+            this.setState({description: '...', show: false});
             return true;
-        }else if(nextState.show === true || nextState.show !== true){
+        } else if (nextState.show === true || nextState.show !== true) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
@@ -34,35 +31,36 @@ class PlaceInfo extends Component {
             : this.setState({description: '...', show: false});
     }
     render() {
-        console.log(this.state);
-        if (this.state.show) {
+        if (this.state.show && this.state.description !== null) {
             return (
-                <div className='table column is-3 floatLeft'>
+                <div className='column is-3 floatLeft'>
                     <div className='description-popup' onClick={this.showDescription}>
                         <div className='description-title'>Description</div>
+                        <hr/>
                         <div className='description-body'>{this.place.description}</div>
                     </div>
-                    <table>
+                    <div className='temp'>
+                        <h2>{this.props.weather.locationData.currently.temperature+'°F'}</h2>
+                    </div>
+                    <table className='table'>
                         <tbody>
                             <tr>
                                 <th>City</th>
-                                <tr>{this.place.city}</tr>
+                                <td>{this.place.city}</td>
                             </tr>
                             <tr>
                                 <th>Name</th>
-                                <tr>{this.place.name}</tr>
+                                <td>{this.place.name}</td>
                             </tr>
                             <tr>
-                                <th>Temp</th>
-                                <tr>{this.props.weather.locationData.currently.temperature}</tr>
-                            </tr>
-                            <tr onClick={this.showDescription}>
                                 <th>Description</th>
-                                <tr>...</tr>
+                                <td>
+                                    <button className='button is-inf' onClick={this.showDescription}>Read</button>
+                                </td>
                             </tr>
                             <tr>
                                 <th>Activities</th>
-                                <tr>{this.activities.join(', ')}</tr>
+                                <td>{this.activities.join(', ')}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -70,28 +68,29 @@ class PlaceInfo extends Component {
             )
         } else {
             return (
-                <div className='table column is-3 floatLeft'>
-                    <table>
+                <div className='column is-3 floatLeft'>
+                    <div className='temp'>
+                        <h2>{this.props.weather.locationData.currently.temperature+'°F'}</h2>
+                    </div>
+                    <table className='table'>
                         <tbody>
                             <tr>
                                 <th>City</th>
-                                <tr>{this.place.city}</tr>
+                                <td>{this.place.city}</td>
                             </tr>
                             <tr>
                                 <th>Name</th>
-                                <tr>{this.place.name}</tr>
+                                <td>{this.place.name}</td>
                             </tr>
                             <tr>
-                                <th>Temp</th>
-                                <tr>{this.props.weather.locationData.currently.temperature}</tr>
-                            </tr>
-                            <tr onClick={this.showDescription}>
                                 <th>Description</th>
-                                <tr>{this.state.description}</tr>
+                                <td>
+                                    <button className='button is-inf' onClick={this.showDescription}>Read</button>
+                                </td>
                             </tr>
                             <tr>
                                 <th>Activities</th>
-                                <tr>{this.activities.join(', ')}</tr>
+                                <td>{this.activities.join(', ')}</td>
                             </tr>
                         </tbody>
                     </table>
