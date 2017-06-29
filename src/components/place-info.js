@@ -37,7 +37,8 @@ class PlaceInfo extends Component {
             activities: this.activities,
             show: this.state.show,
             showDescription:this.showDescription,
-            weather:this.props.weather
+            weather:this.props.weather,
+            description: this.state.description
         }}/>)
     }
 }
