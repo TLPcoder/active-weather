@@ -18,6 +18,7 @@ body {
     background-position: center center;
     background-attachment: fixed;
 }
+
 .App-logo {
     animation: App-logo-spin infinite 20s linear;
     height: 80px;
@@ -228,8 +229,6 @@ button:hover {
     color: #2BB0D1 !important;
 }
 
-
-
 @media (max-width: 900px) {
     .map-and-Info {
         width: 100%;
@@ -252,12 +251,10 @@ button:hover {
         position: relative;
         width: 180px !important;
     }
-
-    table td{
+    table td {
         float: right;
         margin-right: 30px;
     }
-
     table td, th {
         position: relative;
         top: 20px;
@@ -277,16 +274,16 @@ button:hover {
         z-index: 1;
         left: 1px;
     }
-    .temp{
-        width:100%;
+    .temp {
+        width: 100%;
         margin-left: 0;
         position: relative;
-        left:0;
+        left: 0;
     }
-    .floatLeft{
-        width:100%;
+    .floatLeft {
+        width: 100%;
     }
-    #hr{
+    #hr {
         display: none;
     }
     #graph {
@@ -335,14 +332,24 @@ button:hover {
         /*width:600px;*/
         -webkit-animation: fadein 1s;
         box-shadow: 10px 10px 5px grey;
-        width:100%;
+        width: 100%;
         padding: 10px;
         border-radius: 3px;
         background-color: #2bb0d1;
         color: white;
         z-index: 15;
         position: absolute;
-        left:0px;
+        left: 0px;
         margin-right: 151px;
     }
+}
+
+#title {
+    width: 100%;
+    text-align: center;
+    color: white;
+    position: relative;
+    margin: auto;
+    font-size: 5vh !important;
+    font-family: monospace;
 }

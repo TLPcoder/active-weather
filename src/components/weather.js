@@ -9,8 +9,8 @@ class Weather extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            width: 600,
-            height: 250,
+            width: 380,
+            height: 320,
             windowSize: null
         };
         this.fiveDayForcast = this.props.weather.locationData.daily.data.map((el) => {
@@ -39,7 +39,7 @@ class Weather extends Component {
         return (
             <div>
                 <div id='graph'>
-                    <Line data={this.weatherData} width={400} height={300}/>
+                    <Line data={this.weatherData} width={this.state.width} height={this.state.height}/>
                 </div>
             </div>
         )

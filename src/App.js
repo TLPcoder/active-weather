@@ -8,6 +8,7 @@ import Search from './components/search';
 import PlaceMap from './components/map';
 import Weather from './components/weather';
 import PlaceInfo from './components/place-info';
+import GoogleMapReact from 'google-map-react';
 
 class App extends Component {
     constructor(props) {
@@ -18,10 +19,11 @@ class App extends Component {
             return (
                 <div className="App">
                     <div id="background"></div>
+                    <h1 id='title'>Active Weather</h1>
                     <Search className='searchBar'/>
                     <div className='map-and-Info'>
                         <PlaceInfo/>
-                        <PlaceMap  id='map'/>
+                        <PlaceMap id='map'/>
                     </div>
                     <div id='hr'></div>
                     <Weather/>
@@ -31,6 +33,7 @@ class App extends Component {
             return (
                 <div className="App">
                     <div id="background"></div>
+                    <h1 id='title'>Active Weather</h1>
                     <Search className='searchBar'/>
                     <div>
                         <PlaceMap id='center'/>
@@ -41,7 +44,16 @@ class App extends Component {
             return (
                 <div className="App">
                     <div id="background"></div>
+                    <h1 id='title'>Active Weather</h1>
                     <Search className='searchBar'/>
+                    <div>
+                        <div className='center-map'>
+                            <GoogleMapReact defaultCenter={{
+                                lat: 38.75408327579141,
+                                lng: -99.84375
+                            }} defaultZoom={0}></GoogleMapReact>
+                        </div>
+                    </div>
                 </div>
             );
         }

@@ -10,7 +10,7 @@ const Search = props => {
     }
     return (
         <div id='search'>
-            <input type="text" ref={i => {
+            <input type="text" placeholder='City' ref={i => {
                 location = i
             }}/>
             <button className='button' type="button" onClick={getPlaces}>Search</button>

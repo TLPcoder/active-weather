@@ -6,7 +6,6 @@ var initialState = {
 };
 
 export default (state = initialState, action)=>{
-    console.log('payload', action.payload);
     switch(action.type){
         case types.GET_HIKING_TRAILS_SUCCESS:
             return {...state, places:action.payload};

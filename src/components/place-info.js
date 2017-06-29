@@ -1,6 +1,7 @@
 'use strict';
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import InfoTable from './info-table';
 
 class PlaceInfo extends Component {
     constructor(props) {
@@ -31,72 +32,13 @@ class PlaceInfo extends Component {
             : this.setState({description: '...', show: false});
     }
     render() {
-        if (this.state.show && this.state.description !== null) {
-            return (
-                <div className='floatLeft'>
-                    <div className='description-popup' onClick={this.showDescription}>
-                        <div className='description-title'>Description</div>
-                        <hr/>
-                        <div className='description-body'>{this.place.description}</div>
-                    </div>
-                    <div className='temp'>
-                        <h2>{String(this.props.weather.locationData.currently.temperature).split('.')[0] + '°F'}</h2>
-                    </div>
-                    <table>
-                        <tbody>
-                            <tr>
-                                <th>City</th>
-                                <td>{this.place.city}</td>
-                            </tr>
-                            <tr>
-                                <th>Name</th>
-                                <td>{this.place.name}</td>
-                            </tr>
-                            <tr>
-                                <th>Description</th>
-                                <td>
-                                    <button className='button is-inf' onClick={this.showDescription}>Read</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Activities</th>
-                                <td>{this.activities.join(', ')}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            )
-        } else {
-            return (
-                <div className='floatLeft'>
-                    <div className='temp'>
-                        <h2>{String(this.props.weather.locationData.currently.temperature).split('.')[0] + '°F'}</h2>
-                    </div>
-                    <table>
-                        <tbody>
-                            <tr>
-                                <th>City</th>
-                                <td>{this.place.city}</td>
-                            </tr>
-                            <tr>
-                                <th>Name</th>
-                                <td>{this.place.name}</td>
-                            </tr>
-                            <tr>
-                                <th>Description</th>
-                                <td>
-                                    <button className='button is-inf' onClick={this.showDescription}>Read</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Activities</th>
-                                <td>{this.activities.join(', ')}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            )
-        }
+        return (<InfoTable data={{
+            place: this.place,
+            activities: this.activities,
+            show: this.state.show,
+            showDescription:this.showDescription,
+            weather:this.props.weather
+        }}/>)
     }
 }
 
