@@ -33,16 +33,16 @@ class PlaceInfo extends Component {
     render() {
         if (this.state.show && this.state.description !== null) {
             return (
-                <div className='column is-3 floatLeft'>
+                <div className='floatLeft'>
                     <div className='description-popup' onClick={this.showDescription}>
                         <div className='description-title'>Description</div>
                         <hr/>
                         <div className='description-body'>{this.place.description}</div>
                     </div>
                     <div className='temp'>
-                        <h2>{this.props.weather.locationData.currently.temperature+'°F'}</h2>
+                        <h2>{String(this.props.weather.locationData.currently.temperature).split('.')[0] + '°F'}</h2>
                     </div>
-                    <table className='table'>
+                    <table>
                         <tbody>
                             <tr>
                                 <th>City</th>
@@ -68,11 +68,11 @@ class PlaceInfo extends Component {
             )
         } else {
             return (
-                <div className='column is-3 floatLeft'>
+                <div className='floatLeft'>
                     <div className='temp'>
-                        <h2>{this.props.weather.locationData.currently.temperature+'°F'}</h2>
+                        <h2>{String(this.props.weather.locationData.currently.temperature).split('.')[0] + '°F'}</h2>
                     </div>
-                    <table className='table'>
+                    <table>
                         <tbody>
                             <tr>
                                 <th>City</th>

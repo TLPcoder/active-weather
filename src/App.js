@@ -16,14 +16,14 @@ class App extends Component {
     render() {
         if (this.props.weather.showWeather) {
             return (
-                <div>
+                <div className="App">
                     <div id="background"></div>
                     <Search className='searchBar'/>
                     <div className='map-and-Info'>
                         <PlaceInfo/>
                         <PlaceMap  id='map'/>
                     </div>
-                    <div id='hr'><hr/></div>
+                    <div id='hr'></div>
                     <Weather/>
                 </div>
             )
@@ -39,7 +39,7 @@ class App extends Component {
             )
         } else {
             return (
-                <div className="App columns">
+                <div className="App">
                     <div id="background"></div>
                     <Search className='searchBar'/>
                 </div>

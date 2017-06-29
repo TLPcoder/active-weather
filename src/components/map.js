@@ -27,7 +27,7 @@ const PlaceMap = props => {
     if (props.weather.showWeather) {
         return (
             <div className='map'>
-                <GoogleMapReact defaultCenter={center} defaultZoom={12}>
+                <GoogleMapReact className='main-map' defaultCenter={center} defaultZoom={12}>
                     {mapMarkers}
                 </GoogleMapReact>
             </div>
