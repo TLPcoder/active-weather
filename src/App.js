@@ -8,7 +8,7 @@ import Search from './components/search';
 import PlaceMap from './components/map';
 import Weather from './components/weather';
 import PlaceInfo from './components/place-info';
-import GoogleMapReact from 'google-map-react';
+import GoogleMap from 'google-map-react';
 
 class App extends Component {
     constructor(props) {
@@ -48,10 +48,10 @@ class App extends Component {
                     <Search className='searchBar'/>
                     <div>
                         <div className='center-map'>
-                            <GoogleMapReact defaultCenter={{
+                            <GoogleMap defaultCenter={{
                                 lat: 38.75408327579141,
                                 lng: -99.84375
-                            }} defaultZoom={0}></GoogleMapReact>
+                            }} defaultZoom={0}></GoogleMap>
                         </div>
                     </div>
                 </div>

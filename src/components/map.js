@@ -1,7 +1,7 @@
 'use strict';
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import GoogleMapReact from 'google-map-react';
+import GoogleMap from 'google-map-react';
 import {setCurrentPlace} from '../actions/hiking-actions';
 import * as weatherActions from '../actions/weather-actions';
 
@@ -26,17 +26,17 @@ const PlaceMap = props => {
     if (props.weather.showWeather) {
         return (
             <div className='map'>
-                <GoogleMapReact className='main-map' defaultCenter={center} defaultZoom={12}>
+                <GoogleMap className='main-map' defaultCenter={center} defaultZoom={12}>
                     {mapMarkers}
-                </GoogleMapReact>
+                </GoogleMap>
             </div>
         )
     } else if (props.map.loadMap && props.map.markers.length > 0) {
         return (
             <div className='center-map'>
-                <GoogleMapReact defaultCenter={center} defaultZoom={12}>
+                <GoogleMap defaultCenter={center} defaultZoom={12}>
                     {mapMarkers}
-                </GoogleMapReact>
+                </GoogleMap>
             </div>
         )
     }
