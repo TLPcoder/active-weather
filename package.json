@@ -18,7 +18,8 @@
     "react-redux": "^5.0.5",
     "redux": "^3.7.0",
     "redux-saga": "^0.15.3",
-    "xml2json": "^0.11.0"
+    "xml2json": "^0.11.0",
+    "react-scripts": "1.0.7"
   },
   "devDependencies": {
     "react-scripts": "1.0.7"
