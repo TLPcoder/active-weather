@@ -9,11 +9,15 @@ const Search = props => {
         props.getHikingTrails(`https://trailapi-trailapi.p.mashape.com/?q[city_cont]=${location.value.split(' ').join('+')}`);
     }
     return (
-        <div>
-            <input type="text" ref={i=>{location=i}}/>
-            <input type="button" value="Search" onClick={getPlaces}/>
+        <div id='search'>
+            <input type="text" ref={i => {
+                location = i
+            }}/>
+            <button className='button' type="button" onClick={getPlaces}>Search</button>
         </div>
     )
 }
 
-export default connect(({hiking}) => ({hiking}), {...hikingTrails})(Search);
+export default connect(({hiking}) => ({hiking}), {
+    ...hikingTrails
+})(Search);

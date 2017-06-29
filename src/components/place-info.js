@@ -1,7 +1,6 @@
 'use strict';
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class PlaceInfo extends Component {
     constructor(props) {
@@ -11,43 +10,93 @@ class PlaceInfo extends Component {
             return el.activity_type_name;
         });
         this.state = {
-            description: '...'
+            description: '...',
+            show: false
         };
+    }
+    shouldComponentUpdate(nextProps, nextState) {
+        if (nextProps.hiking.current.name !== this.place.name) {
+            this.place = nextProps.hiking.current;
+            this.setState({description: '...', show: false});
+            return true;
+        } else if (nextState.show === true || nextState.show !== true) {
+            return true;
+        } else {
+            return false;
+        }
     }
     showDescription = () => {
         this.state.description === '...'
-            ? this.setState({description: this.place.description})
-            : this.setState({description: '...'});
+            ? this.setState({description: this.place.description, show: true})
+            : this.setState({description: '...', show: false});
     }
     render() {
-        return (
-            <div>
-                <table>
-                    <tbody>
-                        <tr>
-                            <th>City</th>
-                            <tr>{this.place.city}</tr>
-                        </tr>
-                        <tr>
-                            <th>Name</th>
-                            <tr>{this.place.name}</tr>
-                        </tr>
-                        <tr>
-                            <th>Temp</th>
-                        <tr>{this.props.weather.locationData.currently.temperature}</tr>
-                        </tr>
-                        <tr onClick={this.showDescription}>
-                            <th>Description</th>
-                            <tr>{this.state.description}</tr>
-                        </tr>
-                        <tr>
-                            <th>Activities</th>
-                            <tr>{this.activities.join(', ')}</tr>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        )
+        if (this.state.show && this.state.description !== null) {
+            return (
+                <div className='floatLeft'>
+                    <div className='description-popup' onClick={this.showDescription}>
+                        <div className='description-title'>Description</div>
+                        <hr/>
+                        <div className='description-body'>{this.place.description}</div>
+                    </div>
+                    <div className='temp'>
+                        <h2>{String(this.props.weather.locationData.currently.temperature).split('.')[0] + '°F'}</h2>
+                    </div>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th>City</th>
+                                <td>{this.place.city}</td>
+                            </tr>
+                            <tr>
+                                <th>Name</th>
+                                <td>{this.place.name}</td>
+                            </tr>
+                            <tr>
+                                <th>Description</th>
+                                <td>
+                                    <button className='button is-inf' onClick={this.showDescription}>Read</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Activities</th>
+                                <td>{this.activities.join(', ')}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            )
+        } else {
+            return (
+                <div className='floatLeft'>
+                    <div className='temp'>
+                        <h2>{String(this.props.weather.locationData.currently.temperature).split('.')[0] + '°F'}</h2>
+                    </div>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th>City</th>
+                                <td>{this.place.city}</td>
+                            </tr>
+                            <tr>
+                                <th>Name</th>
+                                <td>{this.place.name}</td>
+                            </tr>
+                            <tr>
+                                <th>Description</th>
+                                <td>
+                                    <button className='button is-inf' onClick={this.showDescription}>Read</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Activities</th>
+                                <td>{this.activities.join(', ')}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            )
+        }
     }
 }
 

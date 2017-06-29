@@ -2,6 +2,22 @@
     text-align: center;
 }
 
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+#background {
+    background-color: #252830;
+    width: 100%;
+    z-index: -5;
+    height: 100vh;
+    position: fixed;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
 .App-logo {
     animation: App-logo-spin infinite 20s linear;
     height: 80px;
@@ -27,10 +43,24 @@
     }
 }
 
-#map {
-    width: 500px;
-    height: 500px;
+.map {
+    -webkit-animation: fadein 1s;
+    width: 350px;
+    height: 350px;
+    position: relative;
+    left: 430px;
+    top: 12px;
+    z-index: 1;
+}
+
+.center-map {
+    -webkit-animation: fadein 1s;
+    width: 400px;
+    height: 400px;
+    position: relative;
     margin: auto;
+    top: 70px;
+    z-index: 1;
 }
 
 .marker {
@@ -42,25 +72,277 @@
     padding: 15px
 }
 
-.marker p{
+.marker p {
     display: none;
 }
 
-.marker:hover p{
+.marker:hover p {
+    -webkit-animation: fadein 0.5s;
+    color: white;
+    padding: 5px;
     position: relative;
-    bottom:40px;
-    left:15px;
+    bottom: 40px;
+    left: 15px;
     font-size: 15px;
     display: block;
-    background-color: #F0F0F0;
-    min-width:110px;
+    background-color: #2bb0d1;
+    width: 150px;
+    max-width: 200px;
     z-index: 14;
-    border:1px solid #94989D;
-    border-radius: 5px;
+    box-shadow: 10px 10px 5px grey;
+    border-radius: 2px;
     font-family: sans-serif;
 }
 
-#linechart{
+#linechart {
     width: 500px;
     margin: auto;
+}
+
+.temp {
+    background-color: #1A1C22;
+    width: 350px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 30px;
+    color: white;
+    position: relative;
+    left: 40px;
+    margin-top: 12px;
+}
+
+table {
+    background-color: #222222 !important;
+    padding: 10px !important;
+    color: white !important;
+    width: 350px !important;
+    height: 295px !important;
+    font-size: 20px;
+    z-index: 1;
+    margin-right: 90px;
+    position: relative;
+    left: 40px;
+}
+
+table tr:hover {
+    background-color: #222222 !important;
+}
+
+table td button {
+    position: relative;
+    width: 180px !important;
+}
+
+table td, th {
+    position: relative;
+    top: 20px;
+}
+
+table th {
+    color: white !important;
+    float: left;
+    margin-left: 10px !important;
+}
+
+table td {
+    color: white !important;
+    float: right;
+    margin-right: 10px;
+}
+
+#search {
+    width: 400px;
+    margin: auto;
+    position: relative;
+    top: 30px;
+}
+
+#search input[type=text] {
+    height: 35px;
+    font-size: 20px;
+    margin-right: 20px;
+}
+
+#graph {
+    width: 600px;
+    height: 250px;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.map-and-Info {
+    width: 800px;
+    margin: auto;
+    position: relative;
+    top: 70px;
+}
+
+.floatLeft {
+    float: left;
+}
+
+.description-popup {
+    /*width:600px;*/
+    -webkit-animation: fadein 1s;
+    box-shadow: 10px 10px 5px grey;
+    max-width: 600px;
+    padding: 10px;
+    border-radius: 3px;
+    background-color: #2bb0d1;
+    color: white;
+    z-index: 15;
+    position: absolute;
+    left: 110px;
+    top: 150px;
+}
+
+@-webkit-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#hr {
+    width: 730px;
+    margin: auto;
+    position: relative;
+    top: 20px;
+    border-top: 1px solid grey;
+    left: 17px;
+    margin-top: 100px;
+}
+
+button {
+    background-color: #2BB0D1 !important;
+    border: 2px solid #2BB0D1 !important;
+    color: white !important;
+}
+
+button:hover {
+    border: 2px solid #2BB0D1 !important;
+    background-color: white !important;
+    color: #2BB0D1 !important;
+}
+
+
+
+@media (max-width: 900px) {
+    .map-and-Info {
+        width: 100%;
+        height: 800px;
+        margin: auto;
+    }
+    table {
+        clear: left;
+        background-color: #222222 !important;
+        width: 100% !important;
+        height: 295px !important;
+        margin-right: 90px;
+        position: relative;
+        left: 0;
+    }
+    table tr:hover {
+        background-color: #222222 !important;
+    }
+    table td button {
+        position: relative;
+        width: 180px !important;
+    }
+
+    table td{
+        float: right;
+        margin-right: 30px;
+    }
+
+    table td, th {
+        position: relative;
+        top: 20px;
+    }
+    table th {
+        color: white !important;
+        margin-left: 30px !important;
+        float: left;
+    }
+    .map {
+        clear: left;
+        -webkit-animation: fadein 1s;
+        width: 100%;
+        height: 350px;
+        position: relative;
+        top: 12px;
+        z-index: 1;
+        left: 1px;
+    }
+    .temp{
+        width:100%;
+        margin-left: 0;
+        position: relative;
+        left:0;
+    }
+    .floatLeft{
+        width:100%;
+    }
+    #hr{
+        display: none;
+    }
+    #graph {
+        width: 100% !important;
+        height: 250px !important;
+        margin: auto;
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
+    .description-popup {
+        /*width:600px;*/
+        -webkit-animation: fadein 1s;
+        box-shadow: 10px 10px 5px grey;
+        max-width: 500px;
+        padding: 10px;
+        border-radius: 3px;
+        background-color: #2bb0d1;
+        color: white;
+        z-index: 15;
+        position: absolute;
+        left: 200px;
+        margin-right: 200px;
+    }
+}
+
+@media (max-width: 700px) {
+    .description-popup {
+        /*width:600px;*/
+        -webkit-animation: fadein 1s;
+        box-shadow: 10px 10px 5px grey;
+        max-width: 600px;
+        min-width: 400px;
+        padding: 10px;
+        border-radius: 3px;
+        background-color: #2bb0d1;
+        color: white;
+        z-index: 15;
+        position: absolute;
+        left: 100px;
+        margin-right: 121px;
+    }
+}
+
+@media (max-width: 600px) {
+    .description-popup {
+        /*width:600px;*/
+        -webkit-animation: fadein 1s;
+        box-shadow: 10px 10px 5px grey;
+        width:100%;
+        padding: 10px;
+        border-radius: 3px;
+        background-color: #2bb0d1;
+        color: white;
+        z-index: 15;
+        position: absolute;
+        left:0px;
+        margin-right: 151px;
+    }
 }

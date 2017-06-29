@@ -17,23 +17,31 @@ class App extends Component {
         if (this.props.weather.showWeather) {
             return (
                 <div className="App">
-                    <Search/>
-                    <PlaceMap/>
-                    <PlaceInfo/>
+                    <div id="background"></div>
+                    <Search className='searchBar'/>
+                    <div className='map-and-Info'>
+                        <PlaceInfo/>
+                        <PlaceMap  id='map'/>
+                    </div>
+                    <div id='hr'></div>
                     <Weather/>
                 </div>
             )
         } else if (this.props.map.loadMap && this.props.map.markers.length > 0) {
             return (
                 <div className="App">
-                    <Search/>
-                    <PlaceMap/>
+                    <div id="background"></div>
+                    <Search className='searchBar'/>
+                    <div>
+                        <PlaceMap id='center'/>
+                    </div>
                 </div>
             )
         } else {
             return (
                 <div className="App">
-                    <Search/>
+                    <div id="background"></div>
+                    <Search className='searchBar'/>
                 </div>
             );
         }
