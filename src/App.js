@@ -14,6 +14,11 @@ class App extends Component {
     constructor(props) {
         super(props);
     }
+    componentWillMount() {
+        const script = document.createElement('script');
+        script.setAttribute('src', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAfWUMLZRRUSKDESnVlsdDJ-VMW4kU_U04&v&callback=initMap');
+        document.body.appendChild(script);
+    }
     render() {
         if (this.props.weather.showWeather) {
             return (
