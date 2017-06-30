@@ -46,10 +46,10 @@ body {
 
 .map {
     -webkit-animation: fadein 1s;
-    width: 350px;
+    /*width: 350px;*/
     height: 350px;
     position: relative;
-    left: 430px;
+    /*left: 430px;*/
     top: 12px;
     z-index: 1;
 }
