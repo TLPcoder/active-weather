@@ -26,7 +26,9 @@ const PlaceMap = props => {
     if (props.weather.showWeather) {
         return (
             <div className='map'>
-                <GoogleMap className='main-map' defaultCenter={center} defaultZoom={12}>
+                <GoogleMap className='main-map' defaultCenter={center} defaultZoom={12} bootstrapURLKeys={{
+                    key: 'AIzaSyAfWUMLZRRUSKDESnVlsdDJ-VMW4kU_U04'
+                }}>
                     {mapMarkers}
                 </GoogleMap>
             </div>
@@ -34,7 +36,9 @@ const PlaceMap = props => {
     } else if (props.map.loadMap && props.map.markers.length > 0) {
         return (
             <div className='center-map'>
-                <GoogleMap defaultCenter={center} defaultZoom={12}>
+                <GoogleMap defaultCenter={center} defaultZoom={12} bootstrapURLKeys={{
+                    key: 'AIzaSyAfWUMLZRRUSKDESnVlsdDJ-VMW4kU_U04'
+                }}>
                     {mapMarkers}
                 </GoogleMap>
             </div>
