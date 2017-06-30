@@ -186,8 +186,8 @@ table td {
 .description-popup {
     /*width:600px;*/
     -webkit-animation: fadein 1s;
-    box-shadow: 10px 10px 5px grey;
-    margin:auto;
+    box-shadow: 10px 10px 5px rgba(82, 80, 82, .5);
+    margin: auto;
     width: 600px;
     padding: 10px;
     border-radius: 3px;
@@ -300,7 +300,7 @@ button:hover {
         -webkit-animation: fadein 1s;
         width: 100%;
         padding: 10px;
-        margin:auto;
+        margin: auto;
         border-radius: 3px;
         background-color: #2bb0d1;
         color: white;
